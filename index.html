@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body>
+
+
+<section id="sign-form">
+
+    <div class="container-fluid px-5">
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="text-success">Sign Up</h1>
+                <p class="text-info font-weight-bold pb-4">It's free and takes a minute.</p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <form action="">
+
+                    <div class="form-group">
+
+                        <p class="font-weight-bold">Username :</p>
+                        <input class="form-control" type="text" name="username" id="username">
+                        <label for="" id="user-warning" class="font-weight-bold text-danger"></label>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <p class="font-weight-bold">Email :</p>
+                        <input class="form-control" type="email" name="email" id="email">
+                        <label for="" id="email-warning" class="font-weight-bold text-danger"></label>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <p class="font-weight-bold">Phone :</p>
+                        <input class="form-control" type="number" name="number" id="phone-number">
+                        <label for="" id="phone-warning" class="font-weight-bold text-danger"></label>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <p class="font-weight-bold">Password :</p>
+                        <input class="form-control" type="password" name="password" id="password">
+                        <label for="" id="password-warning" class="font-weight-bold text-danger"></label>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <p class="font-weight-bold">Confirm Password :</p>
+                        <input class="form-control" type="password" name="password" id="confirm-password">
+                        <label for="" id="confirm-password-warning" class="font-weight-bold text-danger"></label>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input class="btn btn-info" type="submit" value="Submit" name="" id="submit-button">
+
+                    </div>
+                    
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+    // All selectors
+
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirm-password");
+const phoneNumber = document.getElementById("phone-number");
+
+const nameWarning = document.getElementById("user-warning");
+const emailWarning = document.getElementById("email-warning");
+const passwordWarning = document.getElementById("password-warning");
+const confirmPasswordWarning = document.getElementById("confirm-password-warning");
+const mobileNumberWarning = document.getElementById("phone-warning");
+
+
+document.getElementById("submit-button").addEventListener("click", function(event){
+    event.preventDefault();
+    
+    // Username warning
+
+    if(!isNaN(username.value)){
+        nameWarning.innerHTML = "** Number are not allowed"
+    };
+
+    if(username.value.length <= 2){
+        nameWarning.innerHTML = "** Minimum 3 character allowed"
+    };
+
+    if(username.value == ""){
+        nameWarning.innerHTML = "** Invalid username"
+    };
+
+    // Email warning
+
+    if(email.value.charAt(email.value.length-4) != '.'){
+        emailWarning.innerHTML = "** . are invalid position"
+    };
+
+    if(email.value.indexOf('@') == 0){
+        emailWarning.innerHTML = "** @ are invalid position"
+    };
+
+    if(email.value == ""){
+        emailWarning.innerHTML = "** Invalid email"
+    };
+
+
+    // Phone number warning
+
+    if(phoneNumber.value == ""){
+        mobileNumberWarning.innerHTML = "** Invalid mobile number"
+    };
+
+     // Password warning
+
+     if(password.value.length <= 7){
+        passwordWarning.innerHTML = "** Minimum 8 character allowed"
+    };
+
+     if(password.value == ""){
+        passwordWarning.innerHTML = "** Invalid password"
+    };
+
+
+    // Confirm password warning
+
+    if(confirmPassword.value != password.value){
+        confirmPasswordWarning.innerHTML = "** Password doesn't match"
+    };
+
+     if(confirmPassword.value == ""){
+        confirmPasswordWarning.innerHTML = "** Invalid confirm password"
+    };
+
+   
+
+});
+</script>
+
+</body>
+
+</html>

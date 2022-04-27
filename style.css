@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(14, 238, 238, 0.979);
+}
+
+#sign-form{
+    height: auto;
+    width: 70%;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px 0px;
+    border-radius: 10px;
+}
+
